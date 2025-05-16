@@ -1,0 +1,30 @@
+.card {
+    background-color: #1c1c1c;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 2px solid #00ff00; /* verde neon */
+    background-color: transparent;
+}
+
+.btn-outline-secondary {
+    border: 2px solid #00ff00 !important;
+    color: #00ff00 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #00ff00 !important;
+    color: black !important;
+}

@@ -1,0 +1,31 @@
+.position-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 100%;
+}
+
+.position-box {
+    padding: 5px 10px;
+    border: 2px solid #00ff00;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    min-width: 50px;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+    flex: 1 1 auto;
+    max-width: 80px;
+}
+
+.position-box.selected {
+    background-color: #00ff00;
+    color: black;
+}
+
+@media (max-width: 600px) {
+    .position-box {
+        max-width: 70px;
+    }
+}

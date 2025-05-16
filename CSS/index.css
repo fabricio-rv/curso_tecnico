@@ -1,0 +1,28 @@
+.tamanho_imagem_carrossel {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+
+.carousel {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-inner img {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+.container-footer {
+    text-align: center;
+    padding: 15px;
+    background: #343a40;
+    color: white;
+    margin-top: 30px;
+}
