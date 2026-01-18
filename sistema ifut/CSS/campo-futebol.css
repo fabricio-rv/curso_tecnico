@@ -1,0 +1,237 @@
+/* Campo de Futebol Interativo - HORIZONTAL */
+.campo-futebol {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #2d5a2d, #1a4a1a);
+  border: 3px solid #00ff00;
+  border-radius: 15px;
+  overflow: visible;
+  box-shadow: 0 8px 25px rgba(0, 255, 0, 0.2);
+}
+
+/* Linhas do campo mais sutis */
+.campo-futebol::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Linha central VERTICAL */
+  background-image: linear-gradient(
+      90deg,
+      transparent 49%,
+      rgba(255, 255, 255, 0.15) 49%,
+      rgba(255, 255, 255, 0.15) 51%,
+      transparent 51%
+    ), /* Círculo central */
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 15%,
+      rgba(255, 255, 255, 0.15) 15%,
+      rgba(255, 255, 255, 0.15) 17%,
+      transparent 17%
+    );
+  background-size: 100% 100%, 100% 100%, 100% 60%, 100% 60%;
+  background-position: center, center, right center, left center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.posicao-jogador {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  user-select: none;
+}
+
+/* AZUL - Selecionada pelo usuário (sua posição) */
+.posicao-jogador.selecionada {
+  background: linear-gradient(135deg, #007bff, #0056b3) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+  cursor: pointer;
+}
+
+/* VERDE NEON - Disponível para seleção */
+.posicao-jogador.disponivel {
+  background: linear-gradient(135deg, #00ff41, #00cc33) !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+}
+
+/* VERMELHA - Já marcada por outro jogador */
+.posicao-jogador.marcada {
+  background: linear-gradient(135deg, #dc3545, #c82333) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+/* CINZA - Não disponibilizada pelo criador */
+.posicao-jogador.indisponivel {
+  background: linear-gradient(135deg, #6c757d, #495057) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* POSIÇÕES HORIZONTAIS - Seguindo a imagem original */
+/* Goleiro - Direita */
+.pos-gol {
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+/* Zagueiro - Centro-direita */
+.pos-zag {
+  top: 50%;
+  right: 130px;
+  transform: translateY(-50%);
+}
+
+/* Ala Direito - Direita-meio */
+.pos-ala-dir {
+  top: 12%;
+  right: 180px;
+  transform: translateY(-50%);
+}
+
+/* Ala Esquerdo - Direita-meio */
+.pos-ala-esq {
+  top: 80%;
+  right: 180px;
+  transform: translateY(-50%);
+}
+
+/* Volante - Mais à esquerda */
+.pos-vol {
+  top: 35%;
+  left: 41%;
+  transform: translate(-50%, -50%);
+}
+
+/* Meia - Mais à esquerda */
+.pos-mei {
+  top: 65%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+/* Atacante - Esquerda */
+.pos-ata {
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+}
+
+/* Labels das posições */
+.posicao-label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #00ff00;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .campo-futebol {
+    max-width: 400px;
+    height: 240px;
+  }
+
+  .posicao-jogador {
+    width: 35px;
+    height: 35px;
+  }
+
+  .posicao-label {
+    font-size: 0.65rem;
+    bottom: -25px;
+  }
+
+  /* Ajustar posições no mobile */
+  .pos-gol {
+    right: 15px;
+  }
+
+  .pos-zag {
+    right: 90px;
+  }
+
+  .pos-ala-dir {
+    right: 140px;
+  }
+
+  .pos-ala-esq {
+    right: 140px;
+  }
+
+  .pos-ata {
+    left: 15px;
+  }
+}
+
+/* Legenda */
+.campo-legenda {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.legenda-cor {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.legenda-selecionada {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+.legenda-disponivel {
+  background: linear-gradient(135deg, #00ff41, #00cc33);
+}
+.legenda-marcada {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+.legenda-indisponivel {
+  background: linear-gradient(135deg, #6c757d, #495057);
+}

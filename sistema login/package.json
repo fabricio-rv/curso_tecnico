@@ -1,0 +1,14 @@
+{
+  "name": "meusite",
+  "version": "1.0.0",
+  "description": "Site estático com login + Cypress E2E",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1 .",
+    "test": "cypress run",
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.0",
+    "http-server": "^14.1.1"
+  }
+}

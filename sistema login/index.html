@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Login</h1>
+    <form id="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+
+      <button type="submit" id="submit-btn">Entrar</button>
+      <button type="reset" id="reset-btn">Limpar</button>
+    </form>
+
+    <p id="error-msg"></p>
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-body"></p>
+        <button id="close-modal">Fechar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
